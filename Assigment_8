@@ -1,0 +1,201 @@
+import 'dart:io';
+import 'dart:math';
+
+// // Q1. Implement Dart code to generate a random password of a given length using a while loop.
+
+String generateRandomPassword(int length) {
+  const String validChars =
+      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#\$%^&*()-_+=";
+
+  String password = '';
+  Random random = Random();
+
+  for (int i = 0; i < length; i++) {
+    int randomIndex = random.nextInt(validChars.length);
+    password += validChars[randomIndex];
+  }
+
+  return password;
+}
+void main() {
+      int length = 10; 
+  String password = generateRandomPassword(length);
+  print("Random Password: $password");
+
+    
+//     // Q2. Write a Dart program that counts the number of digits in a given number using a while loop.
+
+  stdout.write("Enter a number: ");
+  int number = int.parse(stdin.readLineSync()!);
+
+  int count = 0;
+  int temp = number.abs(); 
+
+  if (temp == 0) {
+    count = 1; 
+    while (temp != 0) {
+      temp ~/= 10; 
+    }
+  }
+
+  print("Number of digits: $count");
+
+// //   Q3. Create a Dart program that checks if a given string is empty or not using if-else statements.
+
+
+ String inputString = ''; 
+
+  if (inputString.isEmpty) {
+    print("The string is empty.");
+  } else {
+    print("The string is not empty.");
+  }
+
+// // Q3.Implement Dart code to print the multiplication table of a given number using a while loop.
+
+int number = 5;
+  int i = 1;
+
+  print("Multiplication table of $number:");
+
+  while (i <= 10) {
+    print("$number x $i = ${number * i}");
+    i++;
+  }
+
+// // Q4. Write a Dart program to calculate the sum of odd numbers from 1 to 50 using a do-while loop.
+
+ int sum = 0;
+  int number = 1;
+
+  do {
+    if (number % 2 != 0) {
+      sum += number;
+    }
+    number++;
+  } while (number <= 50);
+
+  print("Sum of odd numbers from 1 to 50: $sum");
+
+
+// // Q5. Create a Dart program that checks if a given number is positive, negative, or zero using if-else statements.
+
+  int number = -10; 
+
+  if (number > 0) {
+    print("$number is positive.");
+  } else if (number < 0) {
+    print("$number is negative.");
+  } else {
+    print("$number is zero.");
+  }
+
+
+// // Q6. Write a Dart program to calculate the factorial of a given number using a while loop.
+
+  int number = 5; 
+  int factorial = 1;
+  int i = 1;
+
+  while (i <= number) {
+    factorial *= i;
+    i++;
+  }
+
+  print("Factorial of $number is: $factorial");
+
+// // Q7. Create a Dart program that prints the first 10 prime numbers using a for loop.
+
+int count = 0;
+  int number = 2;
+
+  print("First 10 prime numbers:");
+
+  while (count < 10) {
+    if (isPrime(number)) {
+      print(number);
+      count++;
+    }
+    number++;
+  }
+}
+
+bool isPrime(int num) {
+  if (num <= 1) {
+    return false;
+  }
+  for (int i = 2; i <= num ~/ 2; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return true;
+
+// // Q8. Implement Dart code to print the first 10 natural numbers in reverse order using a while loop.
+
+
+int count = 10; 
+  print("First 10 natural numbers in reverse order:");
+
+  while (count >= 1) {
+    print(count);
+    count--;
+  }
+
+// // Q9. Implement Dart code to print the squares of numbers from 1 to 5 using a do-while loop.
+
+  int number = 1;
+
+  print("Squares of numbers from 1 to 5:");
+
+  do {
+    int square = number * number;
+    print("Square of $number: $square");
+    number++;
+  } while (number <= 5);
+
+// // Q10. Create Dart code to calculate the average of numbers in a list using a do-while loop.
+
+  List<int> numbers = [10, 20, 30, 40, 50]; 
+  int sum = 0;
+  int index = 0;
+
+  do {
+    sum += numbers[index];
+    index++;
+  } while (index < numbers.length);
+
+  double average = sum / numbers.length;
+
+  print("Average of numbers in the list: $average");
+
+
+// // Q11. Write a Dart program to find the largest digit of a given number using a do-while loop.
+
+
+  int number = 987654; 
+  int largestDigit = 0;
+
+  number = number.abs();
+
+  do {
+    int digit = number % 10;
+    if (digit > largestDigit) {
+      largestDigit = digit;
+    }
+    number ~/= 10;
+  } while (number != 0);
+
+  print("The largest digit in the number is: $largestDigit");
+
+// // Q12. Write a Dart program to print even numbers from 1 to 20 using a do-while loop
+
+
+ int number = 2; 
+  print("Even numbers from 1 to 20:");
+
+  do {
+    print(number);
+    number += 2; 
+  } while (number <= 20);
+}
